@@ -1,0 +1,14 @@
+services:
+  web:      
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/frontend
+  api:
+    build: ./backend/app
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/app:/backend/app
+    command: bash -c "python server.py"
